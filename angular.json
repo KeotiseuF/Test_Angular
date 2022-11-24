@@ -45,7 +45,13 @@
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["images/logo.ico", "src/assets"],
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "./node_modules/youpackage",
+                "output": "/where_you_want_theasset/"
+              }
+            ],
             "styles": ["src/styles.scss"],
             "scripts": []
           },
