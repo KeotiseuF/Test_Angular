@@ -12,3 +12,8 @@ h1 {
   font-family: "Nerko none", cursive, Helvetica, sans-serif;
   margin: 0px;
 }
+
+[class*="page"] {
+  width: 100vw;
+  height: 100vh;
+}
