@@ -1,7 +1,7 @@
-import { Component } from "@angular/core"; // Importe un composant
+import { Component } from "@angular/core";
 
 @Component({
-  selector: "app-root", // Applique un selecteur
+  selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"],
 })

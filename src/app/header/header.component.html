@@ -1,0 +1,41 @@
+<header>
+  <nav id="button_accueil" routerLink="/accueil" (click)="onDisplayAccueil()">
+    Accueil
+  </nav>
+  <button
+    id="experiences_button"
+    type="button"
+    (click)="onDisplayExperiences()"
+  >
+    Expériences
+    <ul>
+      <li>
+        <nav
+          (click)="onDisplayExperienceOne()"
+          class="experience"
+          routerLink="experience"
+        >
+          OpenClassrooms
+        </nav>
+      </li>
+      <li>
+        <nav
+          (click)="onDisplayExperienceTwo()"
+          class="experience"
+          routerLink="experience"
+        >
+          Europ Assistance
+        </nav>
+      </li>
+      <li>
+        <nav
+          (click)="onDisplayExperienceThree()"
+          class="experience"
+          routerLink="experience"
+        >
+          Del Arte
+        </nav>
+      </li>
+    </ul>
+  </button>
+</header>

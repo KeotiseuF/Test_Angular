@@ -1,32 +1,35 @@
 // Id qui englobe tout le contenu de la page de garde
 #cover {
-  background: url(../../../images/Background_Cover.svg) no-repeat center #fff66c;
+  background: url(../../assets/images/Background_Cover.svg) no-repeat center
+    #fff66c;
   background-size: cover;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   padding-bottom: 38vh;
-}
+  height: 100vh;
 
-h1 {
-  font-size: 7vw;
-  text-shadow: 7px 9px #123c5cba;
-  color: #3cff66;
-}
+  h1 {
+    font-size: 7vw;
+    text-shadow: 7px 9px #123c5cba;
+  }
 
-#input_home {
-  border-radius: 60px;
-  width: 111px;
-  height: 110px;
-  margin-bottom: 12vh;
-  background: linear-gradient(45deg, rgb(255 241 16) 0%, #ff9800 100%);
-  box-shadow: 14px -7px 31px;
-  border: 0px;
-  font-weight: 600;
-  cursor: pointer;
-  &:hover {
-    background: yellow;
-    box-shadow: none;
+  #input_home {
+    border-radius: 60px;
+    width: 111px;
+    height: 110px;
+    margin-bottom: 12vh;
+    background: linear-gradient(45deg, rgb(255 241 16) 0%, #ff9800 100%);
+    box-shadow: 14px -7px 31px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    padding: 46px 16px;
+    &:hover {
+      background: yellow;
+      box-shadow: none;
+    }
   }
 }

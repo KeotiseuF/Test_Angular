@@ -1,0 +1,54 @@
+header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 15vh;
+  padding: 45px;
+  background: linear-gradient(
+    to bottom,
+    rgb(144 222 255) 0%,
+    rgb(41, 184, 229) 34%,
+    rgb(41, 184, 229) 66%,
+    #ffeb3b 100%
+  );
+
+  #button_accueil {
+    font-size: larger;
+    cursor: pointer;
+    padding: 21px 24px 38px 24px;
+    position: relative;
+    top: 4vh;
+    border-radius: 15px 15px 0px 0px;
+  }
+
+  #experiences_button {
+    margin: 0px 7% 0px 115px;
+    height: 77px;
+    background: none;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+    width: 144px;
+    font-size: 118%;
+    padding: 22px 22px;
+    position: relative;
+    top: 3.6vh;
+    border-radius: 15px 15px 0px 0px;
+
+    ul {
+      margin-top: 35px;
+      font-size: small;
+      list-style: none;
+
+      li {
+        padding-bottom: 20px;
+      }
+    }
+  }
+
+  .experience {
+    &:focus {
+      color: #2bd34f;
+    }
+  }
+}

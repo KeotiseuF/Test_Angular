@@ -6,14 +6,50 @@
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
+  color: white;
+
+  h1 {
+    font-family: "Nerko none", cursive, Helvetica, sans-serif;
+    margin: 0px;
+    color: #3cff66;
+    text-shadow: 3px 4px #123c5cba;
+  }
+
+  p {
+    text-align: justify;
+    width: 80%;
+  }
+
+  [class*="page"] {
+    width: 100%;
+    min-height: 85vh;
+    font-size: x-large;
+    padding-bottom: 50px;
+    background: linear-gradient(
+      to bottom,
+      #ffeb3b 0%,
+      #ffc107 50%,
+      #3cff66 100%
+    );
+  }
 }
 
-h1 {
-  font-family: "Nerko none", cursive, Helvetica, sans-serif;
-  margin: 0px;
-}
+// Style des expériences.
+.page_experience {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 
-[class*="page"] {
-  width: 100vw;
-  height: 100vh;
+  div {
+    display: flex;
+    align-items: center;
+    margin: 35px 0px;
+
+    img {
+      width: 200px;
+      height: 165px;
+      border-radius: 20px;
+      margin-right: 100px;
+    }
+  }
 }

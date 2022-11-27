@@ -106,7 +106,7 @@
             "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
-            "assets": ["images/logo.ico", "src/assets"],
+            "assets": ["assets/images/logo.ico", "src/assets"],
             "styles": ["src/styles.scss"],
             "scripts": []
           }
