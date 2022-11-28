@@ -1,7 +1,9 @@
+// Style le footer.
 footer {
-  height: 200px;
+  padding-bottom: 8%;
   background: linear-gradient(to bottom, #3cff66 0%, #4caf50 100%);
   display: flex;
   align-items: center;
   flex-direction: column;
+  transform: translate(0px, -2px);
 }

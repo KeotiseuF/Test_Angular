@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core"; // Enregistre tout ce qu'on a crée dans Angular, et les groupe ensemble
+import { NgModule } from "@angular/core"; // Enregistre tout ce qu'on a crée dans Angular, et les groupe ensemble.
 import { Routes, RouterModule } from "@angular/router";
 
 // Composants que j'ai généré puis importer.

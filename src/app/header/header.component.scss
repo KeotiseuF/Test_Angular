@@ -1,3 +1,4 @@
+// Style header
 header {
   display: flex;
   justify-content: flex-end;
@@ -12,6 +13,7 @@ header {
     #ffeb3b 100%
   );
 
+  // Style bouton qui mène à la présentation.
   #button_accueil {
     font-size: larger;
     cursor: pointer;
@@ -21,6 +23,7 @@ header {
     border-radius: 15px 15px 0px 0px;
   }
 
+  // Style le bouton qui affiche les différentes expériences.
   #experiences_button {
     margin: 0px 7% 0px 115px;
     height: 77px;
@@ -35,6 +38,7 @@ header {
     top: 3.6vh;
     border-radius: 15px 15px 0px 0px;
 
+    // Style les différents liens qui renvoi vers la page d"expérience sélectionnée.  
     ul {
       margin-top: 35px;
       font-size: small;
@@ -42,6 +46,9 @@ header {
 
       li {
         padding-bottom: 20px;
+        font-size: 15px;
+        margin-left: -10px;
+        width: 120px;
       }
     }
   }
@@ -49,6 +56,30 @@ header {
   .experience {
     &:focus {
       color: #2bd34f;
+    }
+  }
+}
+
+
+// Media queries header.
+@media screen and (max-width: 800px) {
+  header {
+    #experiences_button {
+      margin: 0px 7% 0px;
+
+      ul {
+        display: flex;
+        justify-content: space-evenly;
+        width: 400px;
+        position: relative;
+        right: 215px;
+        margin-top: 44px;
+
+        li {
+          margin-left: 0px;
+          width: initial;
+        }
+      }
     }
   }
 }

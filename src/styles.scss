@@ -60,9 +60,47 @@
   }
 }
 
+
 // Style du footer
 #anecdote {
   text-align: center;
   margin-top: 50px;
   font-size: large;
 }
+
+// Media queries global.
+@media screen and (max-width: 550px) {
+  h1 {
+    text-shadow: 2px 3px rgb(18 60 92 / 73%);
+    font-size: xx-large;
+  }
+
+  p {
+    font-size: large;
+  }
+}
+
+// Media queries page expérience
+@media screen and (max-width: 1150px) {
+  .title_experience {
+    margin: 80px 0px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .page_experience {
+    div {
+      flex-direction: column;
+      margin: 70px 0px 40px;
+
+      .title_experience {
+        margin: 15px 0px 0px;
+      }
+
+      img {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+

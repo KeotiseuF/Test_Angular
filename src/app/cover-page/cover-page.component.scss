@@ -33,3 +33,13 @@
     }
   }
 }
+
+// Media queries pour éléments de la page de garde
+@media screen and (max-width: 800px) {
+  #cover {
+    h1 {
+      font-size: 9vw;
+      text-shadow: 3px 6px rgb(18 60 92 / 73%);
+    }
+  }
+}

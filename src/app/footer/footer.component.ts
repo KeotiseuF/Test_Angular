@@ -1,17 +1,20 @@
-import { Component, OnInit } from "@angular/core";
-import { FetchdataServiceService } from "../fetchdata-service.service";
+import { Component, OnInit } from "@angular/core"; // Importe un composant et un hook.
+import { FetchdataServiceService } from "../fetchdata-service.service"; // Importe un service qui gère les requêtes.
 
 @Component({
-  selector: "app-footer",
-  templateUrl: "./footer.component.html",
-  styleUrls: ["./footer.component.scss"],
-  providers: [FetchdataServiceService],
+  selector: "app-footer", // Nom du composant.
+  templateUrl: "./footer.component.html", // HTML du composant.
+  styleUrls: ["./footer.component.scss"], // SCSS du composant.
+  providers: [FetchdataServiceService], // Rend le service exploitable.
 })
+
+// Classe qui affiche mon footer.
 export class FooterComponent implements OnInit {
-  Url = "https://catfact.ninja/fact";
+  Url = "https://catfact.ninja/fact"; // Url à la quelle je vais faire une requête. 
 
-  constructor(private srv: FetchdataServiceService) {}
+  constructor(private srv: FetchdataServiceService) {} // Injecte HttpClient 
 
+  // Fonction qui envoie une requête get et avec la réponse construit le footer.    
   getPost() {
     this.srv.getData(this.Url).subscribe((data) => {
       const footer = document.getElementsByTagName("footer");
@@ -28,6 +31,7 @@ export class FooterComponent implements OnInit {
     });
   }
 
+  // Exécute la fonction getPost pour afficher les données du footer.
   ngOnInit() {
     this.getPost();
   }

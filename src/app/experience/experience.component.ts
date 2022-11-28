@@ -1,18 +1,24 @@
-import { Component, OnInit } from "@angular/core";
-import { DataExperience } from "../experience/experience.model";
+import { Component, OnInit } from "@angular/core"; // Importe un composant et un hook.
+import { DataExperience } from "../experience/experience.model"; // Importe le schéma pour la présentation de mes expériences.
 
 @Component({
-  selector: "app-experience",
-  templateUrl: "./experience.component.html",
-  styleUrls: ["./experience.component.scss"],
+  selector: "app-experience", // Nom du composant.
+  templateUrl: "./experience.component.html", // HTML du composant.
+  styleUrls: ["./experience.component.scss"], // SCSS du composant.
 })
-export class ExperienceComponent implements OnInit {
-  experienceOne!: DataExperience;
-  experienceTwo!: DataExperience;
-  experienceThree!: DataExperience;
-  ngOnInit() {
-    const getValueLocal = localStorage.getItem("experience");
 
+// Classe qui affiche les pages de mes expériences. 
+export class ExperienceComponent implements OnInit {
+
+  experienceOne!: DataExperience; //  Propriété de l'expérience 1. 
+  experienceTwo!: DataExperience; //  Propriété de l'expérience 2.
+  experienceThree!: DataExperience; //  Propriété de l'expérience 3.
+
+  // Hook indispensable pour exécuter le code.
+  ngOnInit() {
+    const getValueLocal = localStorage.getItem("experience"); // Récupére une donnée dans le local storage, permettra d'afficher la bonne page d'expérience. 
+
+    // Attribut des données aux propriétés.
     this.experienceOne = {
       title: "OpenClassrooms",
       imageUrl:
@@ -24,7 +30,7 @@ export class ExperienceComponent implements OnInit {
         "j'ai aussi utilisé l'API de GitHub comme exercice ce qui m'a permis par la suite de travailler avec d'autres API (comme une API météo) " +
         "ou de créer ma propre API qui gérait l'authentification et la création/modification de post. Ce fût une formation enrichissante avec un mentor au top. " +
         "J'ai mis en place différents projets :  <br/> <br/> " +
-        "&nbsp; &nbsp; &nbsp; - créé un réseau social pour une entreprise, <br/>" +
+        "&nbsp; &nbsp; &nbsp; - créé un réseau social pour une entreprise (avec MERN), <br/>" +
         "&nbsp; &nbsp; &nbsp; - géré l'affichage dynamique d'un site e-commerce, <br/>" +
         "&nbsp; &nbsp; &nbsp; - crée une API, <br/>" +
         "&nbsp; &nbsp; &nbsp; - mettre en place un projet REACT, <br/>" +
@@ -32,6 +38,7 @@ export class ExperienceComponent implements OnInit {
         "&nbsp; &nbsp; &nbsp; - intégré une maquette, <br/>" +
         "&nbsp; &nbsp; &nbsp; - mettre un système de veille... <br/>",
     };
+    
     this.experienceTwo = {
       title: "Europ Assistance",
       imageUrl:
@@ -49,6 +56,7 @@ export class ExperienceComponent implements OnInit {
         "au niveau du boîtier, si cela fonctionnait je rédigeais mon rapport sinon je faisais intervenir un technicien. C'était un poste qui demandait de la patience, " +
         "d'être à l'écoute pour les utilisateurs comme pour ses collègues et d'être réactif.",
     };
+    
     this.experienceThree = {
       title: "Del arte",
       imageUrl:
@@ -63,6 +71,8 @@ export class ExperienceComponent implements OnInit {
         "c'était un poste dynamique, polyvalent. C'est grâce à ce poste que j'ai vraiment pu développer mon aisance avec les clients et comme je connaissais très bien la cuisine,  je pouvais cibler leurs besoins plus facilement.",
     };
 
+    
+    // Suite à la donnée récupérée dans le local storage affiche la page de l'expérience sélectionnée.
     if (getValueLocal === "one") {
       const pageExperience = document.getElementById("page_experience");
 
@@ -75,13 +85,16 @@ export class ExperienceComponent implements OnInit {
       underHeader.appendChild(logoExperience);
 
       const titleExperience = document.createElement("h1");
+      titleExperience.className = "title_experience";
       titleExperience.innerHTML = this.experienceOne.title;
       underHeader.appendChild(titleExperience);
 
       const descriptionExperience = document.createElement("p");
       descriptionExperience.innerHTML = this.experienceOne.description;
       pageExperience!.appendChild(descriptionExperience);
-    } else if (getValueLocal === "two") {
+    } 
+    
+    else if (getValueLocal === "two") {
       const pageExperience = document.getElementById("page_experience");
 
       const underHeader = document.createElement("div");
@@ -93,13 +106,16 @@ export class ExperienceComponent implements OnInit {
       underHeader.appendChild(logoExperience);
 
       const titleExperience = document.createElement("h1");
+      titleExperience.className = "title_experience";
       titleExperience.innerHTML = this.experienceTwo.title;
       underHeader.appendChild(titleExperience);
 
       const descriptionExperience = document.createElement("p");
       descriptionExperience.innerHTML = this.experienceTwo.description;
       pageExperience!.appendChild(descriptionExperience);
-    } else {
+    } 
+    
+    else {
       const pageExperience = document.getElementById("page_experience");
 
       const underHeader = document.createElement("div");
@@ -111,6 +127,7 @@ export class ExperienceComponent implements OnInit {
       underHeader.appendChild(logoExperience);
 
       const titleExperience = document.createElement("h1");
+      titleExperience.className = "title_experience";
       titleExperience.innerHTML = this.experienceThree.title;
       underHeader.appendChild(titleExperience);
 
