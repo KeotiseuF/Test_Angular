@@ -15,6 +15,12 @@
     text-shadow: 3px 4px #123c5cba;
   }
 
+  h2 {
+    font-family: "Nerko none", cursive, Helvetica, sans-serif;
+    color: #ffc107;
+    text-shadow: 3px 2px rgb(18 60 92 / 73%);
+  }
+
   p {
     text-align: justify;
     width: 80%;
@@ -52,4 +58,11 @@
       margin-right: 100px;
     }
   }
+}
+
+// Style du footer
+#anecdote {
+  text-align: center;
+  margin-top: 50px;
+  font-size: large;
 }

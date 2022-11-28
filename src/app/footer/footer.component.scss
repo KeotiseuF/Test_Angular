@@ -1,4 +1,7 @@
 footer {
-  height: 250px;
+  height: 200px;
   background: linear-gradient(to bottom, #3cff66 0%, #4caf50 100%);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
