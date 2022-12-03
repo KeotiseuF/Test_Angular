@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core"; // Importe un composant et un hook.
+import { DisplayExperienceService } from "../services/display-experience.service";
 
 @Component({
   selector: "app-header", // Nom du composant.
@@ -8,6 +9,8 @@ import { Component, OnInit } from "@angular/core"; // Importe un composant et un
 
 // Classe qui affiche le header. 
 export class HeaderComponent implements OnInit {
+
+  constructor(private displayExperienceService : DisplayExperienceService){}
 
   ngOnInit() {
     const pagePresentation = document.getElementsByClassName("page_presentation");
@@ -74,32 +77,20 @@ export class HeaderComponent implements OnInit {
     );
   }
 
-  // Lors du clique sur une expérience en particulier envoi une donnée au local storage et 
-  // si on est sur une page différente de celle qu'on a choisi recharge la page pour que les nouvelles données s'affichent. 
+
+
+  
   onDisplayExperienceOne() {
-    const pagePresentation =
-      document.getElementsByClassName("page_presentation");
-    localStorage.setItem("experience", "one");
-    if (pagePresentation.length === 0) {
-      location.reload();
-    }
+    this.displayExperienceService.display(0);
   }
 
   onDisplayExperienceTwo() {
-    localStorage.setItem("experience", "two");
-    const pagePresentation =
-      document.getElementsByClassName("page_presentation");
-    if (pagePresentation.length === 0) {
-      location.reload();
-    }
+    this.displayExperienceService.display(1)
   }
 
   onDisplayExperienceThree() {
-    localStorage.setItem("experience", "three");
-    const pagePresentation =
-      document.getElementsByClassName("page_presentation");
-    if (pagePresentation.length === 0) {
-      location.reload();
-    }
+    this.displayExperienceService.display(2)
   }
+ 
+
 }
