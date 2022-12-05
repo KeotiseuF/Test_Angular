@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core"; // Importe un composant et un hook.
 import { DisplayExperienceService } from "../services/display-experience.service";
-
+import { ActivatedRoute } from "@angular/router";
 @Component({
   selector: "app-header", // Nom du composant.
   templateUrl: "./header.component.html", // HTML du composant.
@@ -10,7 +10,7 @@ import { DisplayExperienceService } from "../services/display-experience.service
 // Classe qui affiche le header. 
 export class HeaderComponent implements OnInit {
 
-  constructor(private displayExperienceService : DisplayExperienceService){}
+  constructor(private route : ActivatedRoute ){}
 
   ngOnInit() {
     const pagePresentation = document.getElementsByClassName("page_presentation");
@@ -18,7 +18,7 @@ export class HeaderComponent implements OnInit {
     const pageExperience = document.getElementsByName("page_experience");
     const experience = document.getElementsByClassName("experience");
     const nav = document.getElementById("button_accueil");
-    const getValueLocal = localStorage.getItem("experience");
+    const idExperience = +this.route.snapshot.params["id"]; // Récupère l'id qui est un string et avec le "+" convertir l'id en number.
 
     // Fait ressortir avec de la couleur le boutton et les liens par rapport à la page sur laquelle on est.
     if (pagePresentation[0] !== undefined) {
@@ -28,7 +28,7 @@ export class HeaderComponent implements OnInit {
       );
     } 
     
-    else if (pageExperience !== undefined && getValueLocal === "one") {
+    else if (pageExperience !== undefined && idExperience === 1) {
       displayExperiences!.setAttribute(
         "style",
         "background: linear-gradient(to bottom, #ffc107 0%, #ffeb3b 75%);"
@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit {
       experience[0]!.setAttribute("style", "color: #2bd34f;");
     } 
     
-    else if (pageExperience !== undefined && getValueLocal === "two") {
+    else if (pageExperience !== undefined && idExperience === 2) {
       displayExperiences!.setAttribute(
         "style",
         "background: linear-gradient(to bottom, #ffc107 0%, #ffeb3b 75%);"
@@ -44,7 +44,7 @@ export class HeaderComponent implements OnInit {
       experience[1]!.setAttribute("style", "color: #2bd34f;");
     } 
     
-    else if (pageExperience !== undefined && getValueLocal === "three") {
+    else if (pageExperience !== undefined && idExperience === 3 ) {
       displayExperiences!.setAttribute(
         "style",
         "background: linear-gradient(to bottom, #ffc107 0%, #ffeb3b 75%);"
@@ -75,22 +75,5 @@ export class HeaderComponent implements OnInit {
       "style",
       "background: linear-gradient(to bottom, #ffc107 0%, #ffeb3b 75%);"
     );
-  }
-
-
-
-  
-  onDisplayExperienceOne() {
-    this.displayExperienceService.display(0);
-  }
-
-  onDisplayExperienceTwo() {
-    this.displayExperienceService.display(1)
-  }
-
-  onDisplayExperienceThree() {
-    this.displayExperienceService.display(2)
-  }
- 
-
+  } 
 }

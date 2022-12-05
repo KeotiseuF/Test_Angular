@@ -5,12 +5,12 @@ import { ExperienceService } from "./experience.service";
     providedIn: "root"
 })
 
+// Structure de base pour mes expèriences.
 export class DisplayExperienceService  {
     constructor(private experienceService: ExperienceService) {}
 
      display (e : number) {
         const pageExperience = document.getElementById("page_experience");
-        console.log(pageExperience)
         const underHeader = document.createElement("div");
         pageExperience!.appendChild(underHeader);
 
