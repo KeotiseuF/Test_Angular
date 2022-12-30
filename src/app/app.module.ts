@@ -9,7 +9,12 @@ import { PresentationPageComponent } from "./presentation-page/presentation-page
 import { AppRoutingModule } from "./app-routing.module";
 import { HeaderComponent } from "./header/header.component";
 import { FooterComponent } from "./footer/footer.component";
-import { ExperienceComponent } from "./experience/experience.component";
+import { ToTheTopComponent } from './to-the-top/to-the-top.component';
+import { SubjectComponent } from './subject/subject.component';
+import { Subjects } from "./services/subjects.service";
+import { ModelizationQcm } from "./services/modelization-qcm.service";
+import { QcmComponent } from './qcm/qcm.component';
+import { ResultComponent } from './result/result.component';
 
 @NgModule({
   declarations: [
@@ -18,10 +23,13 @@ import { ExperienceComponent } from "./experience/experience.component";
     PresentationPageComponent,
     HeaderComponent,
     FooterComponent,
-    ExperienceComponent,
+    ToTheTopComponent,
+    SubjectComponent,
+    QcmComponent,
+    ResultComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
-  providers: [],
+  providers: [Subjects, ModelizationQcm],
   bootstrap: [AppComponent], 
 })
 export class AppModule {}

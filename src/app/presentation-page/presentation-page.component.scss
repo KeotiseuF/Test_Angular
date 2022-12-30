@@ -1,17 +1,28 @@
-.page_presentation {
+.page_presentation 
+{
   display: flex;
   align-items: center;
   flex-direction: column;
+  
+  h2
+  {
+    margin: 30px 24px 50px;
+    text-align: center;
+  }  
 
-  h1 {
-    margin: 50px 0px;
-  }
-}
+  #subjects 
+  {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
 
-@media screen and (max-width: 800px) {
-  .page_presentation {
-    h1 {
-      margin: 70px 0px 40px;
+    li 
+    {
+      margin-bottom: 40px;
     }
   }
 }
+
+

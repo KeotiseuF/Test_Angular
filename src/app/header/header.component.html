@@ -1,39 +1,4 @@
 <!-- Composant du header -->
-<header>
-  <nav id="button_accueil" routerLink="/accueil" (click)="onDisplayAccueil()">
-    Accueil
-  </nav>
-  <button
-    id="experiences_button"
-    type="button"
-    (click)="onDisplayExperiences()"
-  >
-    Expériences
-    <ul>
-      <li>
-        <nav
-          class="experience"
-          routerLink="experience/1"
-        >
-          OpenClassrooms
-        </nav>
-      </li>
-      <li>
-        <nav
-          class="experience"
-          routerLink="experience/2"
-        >
-          Europ Assistance
-        </nav>
-      </li>
-      <li>
-        <nav
-          class="experience"
-          routerLink="experience/3"
-        >
-          Del Arte
-        </nav>
-      </li>
-    </ul>
-  </button>
+<header id="header" *ngIf="displayHeader">
+  <h1>{{displayMainTitle}}</h1>
 </header>

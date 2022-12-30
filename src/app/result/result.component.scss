@@ -1,0 +1,33 @@
+main
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    #circle
+    {
+        border: solid #3fb6db;
+        padding: 59px 115px;
+        border-radius: 173px;
+
+        #stalk
+        {
+            border: solid #3fb6db;
+        }
+
+        p 
+        {
+            font-size: 100px;
+            color: #3fb6db;
+        }
+    }
+
+    a
+    {
+        margin-top: 100px;
+        border: solid gray;
+        background: #f3b72f;
+        padding: 10px;
+    }
+}

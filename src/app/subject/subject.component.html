@@ -1,0 +1,6 @@
+<main>
+    <h2>Veuillez choisir votre QCM :</h2>
+    <ul>
+        <li *ngFor="let category of categories"><a [routerLink]="category.url" (click)="onDisplayQcm(category.name, category.url)">{{ category.name }}</a></li>
+    </ul>
+</main>

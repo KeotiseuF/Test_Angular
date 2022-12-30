@@ -1,2 +1,5 @@
 <!-- Composant footer -->
-<footer></footer>
+<footer *ngIf="displayFooter !== '/'">
+    <h2>Saviez-vous ?</h2>
+    <p>{{ anecdote }}</p> 
+</footer>

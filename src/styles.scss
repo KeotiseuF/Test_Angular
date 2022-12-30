@@ -8,25 +8,17 @@
   padding: 0px;
   color: white;
 
-  h1 {
+  h1 
+  {
     font-family: "Nerko none", cursive, Helvetica, sans-serif;
     margin: 0px;
     color: #3cff66;
     text-shadow: 3px 4px #123c5cba;
+    font-size: 27px;
   }
 
-  h2 {
-    font-family: "Nerko none", cursive, Helvetica, sans-serif;
-    color: #ffc107;
-    text-shadow: 3px 2px rgb(18 60 92 / 73%);
-  }
-
-  p {
-    text-align: justify;
-    width: 80%;
-  }
-
-  [class*="page"] {
+  main 
+  {
     width: 100%;
     min-height: 85vh;
     font-size: x-large;
@@ -38,68 +30,30 @@
       #3cff66 100%
     );
   }
-}
 
-// Style des expériences.
-.page_experience {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
+  h2 
+  {
+    font-family: "Nerko none", cursive, Helvetica, sans-serif;
+    color: rgb(115 222 255);
+    text-shadow: 3px 2px rgb(18 60 92 / 73%);
+    font-size: x-large;
+    text-align: center;
+  }
 
-  div {
-    display: flex;
-    align-items: center;
-    margin: 35px 0px;
+  p 
+  {
+    text-align: justify;
+    width: 80%;
+  }
 
-    img {
-      width: 200px;
-      height: 165px;
-      border-radius: 20px;
-      margin-right: 100px;
-    }
+  li 
+  {
+    list-style-type: none;
+  }
+
+  a 
+  {
+    text-decoration: none;
   }
 }
 
-
-// Style du footer
-#anecdote {
-  text-align: center;
-  margin-top: 50px;
-  font-size: large;
-}
-
-// Media queries global.
-@media screen and (max-width: 550px) {
-  h1 {
-    text-shadow: 2px 3px rgb(18 60 92 / 73%);
-    font-size: xx-large;
-  }
-
-  p {
-    font-size: large;
-  }
-}
-
-// Media queries page expérience
-@media screen and (max-width: 1150px) {
-  .title_experience {
-    margin: 80px 0px;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .page_experience {
-    div {
-      flex-direction: column;
-      margin: 70px 0px 40px;
-
-      .title_experience {
-        margin: 15px 0px 0px;
-      }
-
-      img {
-        margin-right: 10px;
-      }
-    }
-  }
-}

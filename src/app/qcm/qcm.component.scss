@@ -1,0 +1,62 @@
+main
+{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    h2
+    {
+        margin: 30px 24px 50px;
+        text-align: center;
+    }  
+    
+    h3
+    {
+        font-size: 22px;
+        text-align: center;
+        margin: 0px 20px;
+    }
+
+    #choices
+    {
+        display: flex;
+        flex-direction: column;
+        margin: 15px 20px 55px;
+
+        input
+        {
+            opacity: 0; 
+        } 
+    }
+
+    button
+    {
+        
+        opacity: 0;
+        padding: 10px;
+    }
+
+    button:enabled
+    {
+        border: solid gray;
+        opacity: 1;
+        background: #f3b72f;
+    }
+}
+    
+.box
+{
+    text-align: center;
+    margin-right: 15px;
+    border: solid #fc37ff;
+    border-radius: 20px;
+    background: #29c2f1;
+    padding: 20px;
+}
+
+input:checked ~ .box 
+{
+    background: #1b5e72;
+} 
+
+

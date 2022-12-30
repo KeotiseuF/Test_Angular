@@ -5,4 +5,5 @@ import { Component } from "@angular/core"; // Importe composant.
   templateUrl: "./app.component.html", // Importe le HTML.
   styleUrls: ["./app.component.scss"], // Importe le SCSS.
 })
-export class AppComponent {}
+
+export class AppComponent  {}

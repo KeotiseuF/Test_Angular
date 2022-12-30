@@ -1,10 +1,5 @@
 // Style header
 header {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  height: 15vh;
-  padding: 45px;
   background: linear-gradient(
     to bottom,
     rgb(144 222 255) 0%,
@@ -12,74 +7,7 @@ header {
     rgb(41, 184, 229) 66%,
     #ffeb3b 100%
   );
-
-  // Style bouton qui mène à la présentation.
-  #button_accueil {
-    font-size: larger;
-    cursor: pointer;
-    padding: 21px 24px 38px 24px;
-    position: relative;
-    top: 4vh;
-    border-radius: 15px 15px 0px 0px;
-  }
-
-  // Style le bouton qui affiche les différentes expériences.
-  #experiences_button {
-    margin: 0px 7% 0px 115px;
-    height: 77px;
-    background: none;
-    overflow: hidden;
-    border: none;
-    cursor: pointer;
-    width: 144px;
-    font-size: 118%;
-    padding: 22px 22px;
-    position: relative;
-    top: 3.6vh;
-    border-radius: 15px 15px 0px 0px;
-
-    // Style les différents liens qui renvoi vers la page d"expérience sélectionnée.  
-    ul {
-      margin-top: 35px;
-      font-size: small;
-      list-style: none;
-
-      li {
-        padding-bottom: 20px;
-        font-size: 15px;
-        margin-left: -10px;
-        width: 120px;
-      }
-    }
-  }
-
-  .experience {
-    &:focus {
-      color: #2bd34f;
-    }
-  }
-}
-
-
-// Media queries header.
-@media screen and (max-width: 800px) {
-  header {
-    #experiences_button {
-      margin: 0px 7% 0px;
-
-      ul {
-        display: flex;
-        justify-content: space-evenly;
-        width: 400px;
-        position: relative;
-        right: 215px;
-        margin-top: 44px;
-
-        li {
-          margin-left: 0px;
-          width: initial;
-        }
-      }
-    }
-  }
+  
+  text-align: center;
+  padding: 32px 0px;
 }

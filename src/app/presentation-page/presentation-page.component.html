@@ -1,30 +1,11 @@
-<app-header> </app-header>
-<div class="page_presentation">
-  <h1>Présentation</h1>
-  <p>
-    Je me présente FANCHONNA Curtis jeune “développeur web” suite à l'obtention
-    de mon diplôme en octobre 2022 chez OpenClassrooms, j'ai continué sur ma
-    lancé pour faire une alternance chez l'ISCOD pour devenir "Concepteur
-    développeur d'applications".
-  </p>
-  <br />
-  <p>
-    L'informatique est un domaine qui me fascine et j'ai toujours aimé les jeux
-    de logique/énigme ce que je retrouve dans le métier de développeur. Lorsque
-    je code, le temps je ne le vois pas passer en plus c'est un monde où on n'a
-    pas le temps de s'ennuyer. Il y a toujours de nouvelles choses à apprendre,
-    une chose qui me convient parfaitement car j'adore découvrir. <br />
-    Avec cette formation j'ai été servit, que ça soit au niveau du front-end en
-    voyant les bases avec le HTML/CSS, JS, en découvrant ce qu'est
-    l'accessibilité, un site responsive... Ou sinon du back-end, où j'ai crée
-    des middlewares avec des routes authentifiées par un token, crée une API
-    REST puis l'utiliser, sinon gérer une basse de données, accordée des
-    privilèges à certains utilisateurs et inclure un admin...
-  </p>
-  <br />
-  <p>
-    C'était une épreuve enrichissante et une très belle découverte, maintenant
-    si bien partir je compte me renforcer pour devenir un développeur hors pair.
-  </p>
-</div>
-<app-footer></app-footer>
+<main class="page_presentation">
+  <h2>Veuillez choisir votre thème :</h2>
+  <ul id="subjects">
+    <li><a routerLink="/accueil/three-dimensional" (click)="onDisplayCategory(0)">3D</a></li>
+    <li><a routerLink="/accueil/programming" (click)="onDisplayCategory(1)">Programmation</a></li>
+    <li><a routerLink="/accueil/web-three" (click)="onDisplayCategory(2)">Web3</a></li>
+    <li><a routerLink="/accueil/english" (click)="onDisplayCategory(3)">Anglais</a></li>
+    <li><a routerLink="/accueil/ia" (click)="onDisplayCategory(4)">IA</a></li>
+    <li><a routerLink="/accueil/stock-exchange" (click)="onDisplayCategory(5)">Bourse</a></li>
+  </ul>
+</main>
