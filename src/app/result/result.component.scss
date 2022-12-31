@@ -23,9 +23,16 @@ main
         }
     }
 
+    .message 
+    {
+        text-align: center;
+        margin-top: 35px;
+        font-size: 20px;
+    }
+
     a
     {
-        margin-top: 100px;
+        margin-top: 65px;
         border: solid gray;
         background: #f3b72f;
         padding: 10px;
