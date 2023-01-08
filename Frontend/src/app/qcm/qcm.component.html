@@ -1,0 +1,32 @@
+<main>
+    <h2>Question {{ numberQuestion }}/10 :</h2>
+    <ng-container *ngFor="let selectQcm of qcm">
+        <h3 *ngIf="randomQuestion === selectQcm.id">{{ selectQcm.question }}</h3>
+    
+        <div id="choices" *ngIf="randomQuestion === selectQcm.id">
+            <label>
+                <input type="checkbox" (click)="onActiveButton(checkOne, checkTwo, checkThree, 1, selectQcm)" [disabled]="disabledInputOne" #checkOne>
+                
+                <div [ngClass]="['box', 'goodAnswer', 'wrongAnswer']" #colorCheckOne>
+                    {{ selectQcm.choices[0] }}
+                </div>
+            </label>
+            <label >
+                <input type="checkbox" (click)="onActiveButton(checkOne, checkTwo, checkThree, 2, selectQcm)" [disabled]="disabledInputTwo" #checkTwo>
+                
+                <div [ngClass]="['box', 'goodAnswer', 'wrongAnswer']" #colorCheckTwo>
+                    {{ selectQcm.choices[1] }}
+                </div>
+            </label>
+            <label>
+                <input type="checkbox" (click)="onActiveButton(checkOne, checkTwo, checkThree, 3, selectQcm)" [disabled]="disabledInputThree" #checkThree>
+                
+                <div [ngClass]="['box', 'goodAnswer', 'wrongAnswer']" #colorCheckThree>
+                    {{ selectQcm.choices[2] }}
+                </div>
+            </label>
+        </div>
+    </ng-container>
+    <button (click)="onValidAnswer()" *ngIf="displayValidButton" [disabled]="disabledButton">{{ buttonText }}</button>
+    <button (click)="onNextQuestion()" *ngIf="!displayValidButton">{{ buttonText }}</button>
+</main>

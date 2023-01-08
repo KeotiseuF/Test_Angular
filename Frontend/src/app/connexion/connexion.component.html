@@ -1,0 +1,26 @@
+<main>
+    <form [formGroup]="connexionForm">
+        <div class="form-group">
+            <label for="email">Email :</label>
+            <input type="email" id="email" formControlName="email">
+        </div>
+
+        <div class="form-group">
+            <label for="password">Mot de passe :</label>
+            <button type="button" (click)="onDisplayPass()" >{{ displayPassword }}</button>
+            <input [type]="typeInput" id="password" formControlName="password" />
+        </div>
+
+        <div class="form-group" *ngIf="displayValidPassword">
+            <label for="valid_password">Valide mot de passe :</label>
+            <input [type]="typeInput" id="valid_password" formControlName="valid_password" />
+        </div>
+
+        <div class="action-buttons">
+            <button type="submit" (click)="onSubmitForm()" *ngIf="displayButtons" [disabled]="connexionForm.invalid">Connexion</button>
+            <button type="button" (click)="onClick('subscrire')" *ngIf="displayButtons">S'inscrire</button>
+            <button type="submit" (click)="onSubmitForm()" *ngIf="!displayButtons" [disabled]="connexionForm.invalid">Confirmer</button>
+            <button type="button" (click)="onClick('connexion')" *ngIf="!displayButtons">Connecter</button>
+        </div>
+    </form>
+</main> 

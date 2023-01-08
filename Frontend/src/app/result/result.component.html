@@ -1,0 +1,12 @@
+<main>
+    <div id="circle">
+        <p>
+            {{ wrongResponses }}
+        </p>
+        <div id="stalk"></div>
+        <p>10</p>
+    </div>    
+    <p [ngClass]="['message']">{{ message }}</p>
+    <a id="input_home" [routerLink]="['/accueil']" (click)="onResetWrongResponses()">Accueil</a>
+</main>
+
