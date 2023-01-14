@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core"; // Importe un composant et un hook.
-import { NavigationEnd, Router, ActivatedRoute } from "@angular/router";
+import { NavigationEnd, Router, ActivatedRoute, RoutesRecognized } from "@angular/router";
 import { Subjects } from "../services/subjects.service";
 
 @Component({
@@ -13,23 +13,30 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private router : Router,
-    private subjects: Subjects, 
-    private activeRoute: ActivatedRoute 
+    private subjects: Subjects,   
   ){}
 
   displayHeader = false;
-  displayMainTitle : any ;
-  urlSubjectTitle! : any  ;
-  urlCategory! : any;
-  title! : any;
+  displayMainTitle!: any ;
+  urlSubjectTitle!: any  ;
+  urlCategory!: any;
+  title!: any;
+  subjectParams!: string;
+  qcmParams!: string;
 
   ngOnInit() {  
     this.router.events.subscribe(data => {
-      if(data instanceof NavigationEnd)
+      if(data instanceof RoutesRecognized)
       {
-        const subjectParams = this.subjects.subjectParams; 
-        const qcmParams = this.subjects.qcmParams; 
-
+        if(data.state.root.children[0].url.length === 2)
+        {
+          this.subjectParams = data.state.root.children[0].url[1].path;
+        }
+        else if(data.state.root.children[0].url.length === 3)
+        {
+          this.qcmParams = data.state.root.children[0].url[2].path;
+        }
+        
         if(data.url === "/")
         {
           this.displayHeader = false;
@@ -37,7 +44,7 @@ export class HeaderComponent implements OnInit {
         else if(data.url === "/connexion")
         {
           this.displayHeader = true;
-          this.displayMainTitle = "CONNECTION";
+          this.displayMainTitle = "CONNEXION";
         }
         else if(data.url === "/accueil")
         {
@@ -45,14 +52,14 @@ export class HeaderComponent implements OnInit {
           this.displayMainTitle = "BIENVENUE";
           
         }
-        else if(data.url === `/accueil/${subjectParams}`)
+        else if(data.url === `/accueil/${this.subjectParams}`)
         {
-          this.title = (this.subjects.subjects as {[key: string]: any})[subjectParams].title;
+          this.title = (this.subjects.subjects as {[key: string]: any})[this.subjectParams].title;
           this.displayMainTitle = this.title.toUpperCase();
         }
-        else if(data.url === `/accueil/${subjectParams}/${qcmParams}`)
+        else if(data.url === `/accueil/${this.subjectParams}/${this.qcmParams}`)
         {
-          this.urlSubjectTitle = (this.subjects.subjects as {[key: string]: any})[subjectParams].urlSubjectTitle;
+          this.urlSubjectTitle = (this.subjects.subjects as {[key: string]: any})[this.subjectParams].urlSubjectTitle;
           this.displayMainTitle = `${this.title} - ${this.subjects.categoryName}`.toUpperCase();
         }
       }

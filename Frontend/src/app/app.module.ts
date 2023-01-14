@@ -17,6 +17,7 @@ import { QcmComponent } from './qcm/qcm.component';
 import { ResultComponent } from './result/result.component';
 import { ConnexionComponent } from "./connexion/connexion.component";
 import { ReactiveFormsModule } from "@angular/forms";
+import { ErrorPageComponent } from "./error-page/error-page.component";
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ReactiveFormsModule } from "@angular/forms";
     QcmComponent,
     ResultComponent,
     ConnexionComponent,
+    ErrorPageComponent,
   ],
   imports: [
     BrowserModule, 

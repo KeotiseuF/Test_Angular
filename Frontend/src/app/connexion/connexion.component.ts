@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { Location } from "@angular/common";
-import { Router } from "@angular/router";
+import { HttpClient } from "@angular/common/http";
+
 @Component({
     selector: "app-connexion",
     templateUrl: "./connexion.component.html",
@@ -18,21 +18,25 @@ export class ConnexionComponent implements OnInit {
     displayPassword = "Afficher";
     i = 0; 
     typeInput = "password";
+    userDatas!: any;
 
-    @ViewChild("checkbox") checkbox!: ElementRef;
-
-    constructor ( private formBuilder: FormBuilder, private router: Router, private location: Location ) {}
+    constructor (private formBuilder: FormBuilder, private http: HttpClient) {}
 
     ngOnInit(): void
-    {
+    { 
         this.connexionForm = this.formBuilder.group({
-            email: [null, [Validators.required, Validators.pattern(this.mailRegex)]],
-            password: [null, [Validators.required, Validators.pattern(this.passwordRegex)]], 
-        })   
+           userDatas : this.formBuilder.group ({
+                email: [null, [Validators.required, Validators.pattern(this.mailRegex)]], // Aurai-pu utiliser Validator.mail
+                password: [null, [Validators.required, Validators.pattern(this.passwordRegex)]],
+            }) 
+        })
     }
 
     onSubmitForm() {
-        this.router.navigate(["../accueil"])
+        this.http.post("http://localhost:3000/api/connexion", this.connexionForm.value.userDatas)
+        .subscribe((data: any) => {
+            window.alert (data.message)
+        })
     }
 
     onClick(value: string) {
@@ -40,9 +44,11 @@ export class ConnexionComponent implements OnInit {
         {
             this.displayValidPassword = true;
             this.connexionForm = this.formBuilder.group({
-                email: [null, [Validators.required, Validators.pattern(this.mailRegex)]],
-                password: [null, [Validators.required, Validators.pattern(this.passwordRegex)]],
-                valid_password: [null, [Validators.required, Validators.pattern(this.passwordRegex)]],    
+                userDatas : this.formBuilder.group ({
+                    email: [null, [Validators.required, Validators.pattern(this.mailRegex)]],
+                    password: [null, [Validators.required, Validators.pattern(this.passwordRegex)]],
+                    valid_password: [null, [Validators.required, Validators.pattern(this.passwordRegex)]],    
+                })
             })
             this.displayButtons = false; 
         }
@@ -50,8 +56,10 @@ export class ConnexionComponent implements OnInit {
         {
             this.displayValidPassword = false;
             this.connexionForm = this.formBuilder.group({
-                email: [null, [Validators.required, Validators.pattern(this.mailRegex)]],
-                password: [null, [Validators.required, Validators.pattern(this.passwordRegex)]],
+                userDatas : this.formBuilder.group ({
+                    email: [null, [Validators.required, Validators.pattern(this.mailRegex)]],
+                    password: [null, [Validators.required, Validators.pattern(this.passwordRegex)]],
+                })
             })
             this.displayButtons = true;
         }

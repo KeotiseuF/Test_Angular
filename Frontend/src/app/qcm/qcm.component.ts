@@ -154,7 +154,7 @@ export class QcmComponent implements OnInit {
 
     if(this.numberQuestion === 11)
     {
-      this.router.navigateByUrl(`${this.location.path()}/result`)
+      this.router.navigate(["result"], {relativeTo: this.activeRoute})
     }
   }
 }

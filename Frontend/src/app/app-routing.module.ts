@@ -8,6 +8,7 @@ import { QcmComponent } from "./qcm/qcm.component";
 import { SubjectComponent } from "./subject/subject.component";
 import { ResultComponent } from "./result/result.component";
 import { ConnexionComponent } from "./connexion/connexion.component";
+import { ErrorPageComponent } from "./error-page/error-page.component";
 
 const routes: Routes = [
   { path: "", component: CoverPageComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: "accueil", component: PresentationPageComponent },
   { path: "accueil/:titleSubject", component: SubjectComponent },
   { path: "accueil/:titleSubject/:titleQcm", component: QcmComponent },
-  { path: "accueil/:titleSubject/:titleQcm/result", component: ResultComponent },  
+  { path: "accueil/:titleSubject/:titleQcm/result", component: ResultComponent },
+  { path: "**", component: ErrorPageComponent, data: {message: "Erreur 404"} },  
 ];
 
 @NgModule({

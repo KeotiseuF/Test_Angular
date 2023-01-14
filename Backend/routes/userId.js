@@ -1,8 +1,8 @@
 const express = require("express");
-const { getPosts } = require("../controllers/post")
+const { userId } = require("../controllers/userId")
 
 const router = express.Router();
 
-router.get("/", getPosts)
+router.post("/api/connexion", userId);
 
 module.exports = router;
