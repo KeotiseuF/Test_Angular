@@ -1,6 +1,8 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { HttpClient } from "@angular/common/http";
+import { Router } from "@angular/router";
+
 
 @Component({
     selector: "app-connexion",
@@ -19,8 +21,11 @@ export class ConnexionComponent implements OnInit {
     i = 0; 
     typeInput = "password";
     userDatas!: any;
+    
+    @ViewChild("password") password!: ElementRef;
+    @ViewChild("validPassword") validPassword!: ElementRef;
 
-    constructor (private formBuilder: FormBuilder, private http: HttpClient) {}
+    constructor (private formBuilder: FormBuilder, private http: HttpClient, private router: Router) {}
 
     ngOnInit(): void
     { 
@@ -32,15 +37,26 @@ export class ConnexionComponent implements OnInit {
         })
     }
 
-    onSubmitForm() {
-        this.http.post("http://localhost:3000/api/connexion", this.connexionForm.value.userDatas)
-        .subscribe((data: any) => {
-            window.alert (data.message)
+    onSubmitForm(value: string) { 
+        const errorMsg = "Veuillez vérifier vos données entrées";
+        this.http.post(`http://localhost:3000/api/${value}`, this.connexionForm.value.userDatas)
+        .subscribe({
+            next : (() => {
+                if (this.password.nativeElement.value !== this.validPassword.nativeElement.value) 
+                {
+                    window.alert(errorMsg)
+                }
+            }),
+            error : () => { window.alert(errorMsg) },
+            complete : (() => {
+                window.alert("Connexion réussie");                   
+                this.router.navigate(["accueil"]);
+            }) 
         })
     }
 
     onClick(value: string) {
-        if(value === "subscrire")
+        if(value === "signup")
         {
             this.displayValidPassword = true;
             this.connexionForm = this.formBuilder.group({
@@ -50,6 +66,7 @@ export class ConnexionComponent implements OnInit {
                     valid_password: [null, [Validators.required, Validators.pattern(this.passwordRegex)]],    
                 })
             })
+            
             this.displayButtons = false; 
         }
         else

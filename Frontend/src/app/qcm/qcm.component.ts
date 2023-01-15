@@ -24,9 +24,9 @@ export class QcmComponent implements OnInit {
   choice!: number;
   answer!: number;
 
-  @ViewChild('colorCheckOne') colorCheckOne!: ElementRef;
-  @ViewChild('colorCheckTwo') colorCheckTwo!: ElementRef;
-  @ViewChild('colorCheckThree') colorCheckThree!: ElementRef;
+  @ViewChild("colorCheckOne") colorCheckOne!: ElementRef;
+  @ViewChild("colorCheckTwo") colorCheckTwo!: ElementRef;
+  @ViewChild("colorCheckThree") colorCheckThree!: ElementRef;
 
   constructor ( 
     private modelizationQcm: ModelizationQcm, 

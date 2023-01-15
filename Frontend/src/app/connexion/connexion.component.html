@@ -9,19 +9,19 @@
             <div class="form-group">
                 <label for="password">Mot de passe :</label>
                 <button type="button" (click)="onDisplayPass()" >{{ displayPassword }}</button>
-                <input [type]="typeInput" id="password" formControlName="password"/>
+                <input [type]="typeInput" id="password" formControlName="password" #password />
             </div>
 
             <div class="form-group" *ngIf="displayValidPassword">
                 <label for="valid_password">Valide mot de passe :</label>
-                <input [type]="typeInput" id="valid_password" formControlName="valid_password" />
+                <input [type]="typeInput" id="valid_password" formControlName="valid_password" #validPassword />
             </div>
 
             <div class="action-buttons">
-                <button type="submit" (click)="onSubmitForm()" *ngIf="displayButtons" [disabled]="connexionForm.invalid">Connexion</button>
-                <button type="button" (click)="onClick('subscrire')" *ngIf="displayButtons">S'inscrire</button>
-                <button type="submit" (click)="onSubmitForm()" *ngIf="!displayButtons" [disabled]="connexionForm.invalid">Confirmer</button>
-                <button type="button" (click)="onClick('connexion')" *ngIf="!displayButtons">Connecter</button>
+                <button type="submit" (click)="onSubmitForm('login')" *ngIf="displayButtons" [disabled]="connexionForm.invalid">Connexion</button>
+                <button type="button" (click)="onClick('signup')" *ngIf="displayButtons">S'inscrire</button>
+                <button type="submit" (click)="onSubmitForm('signup')" *ngIf="!displayButtons" [disabled]="connexionForm.invalid">Confirmer</button>
+                <button type="button" (click)="onClick('login')" *ngIf="!displayButtons">Login</button>
             </div>
         </div>
     </form>
